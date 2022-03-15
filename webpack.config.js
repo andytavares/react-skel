@@ -51,6 +51,7 @@ const createBaseWebpackConfig = () => {
       liveReload: true,
       open: true,
       compress: true,
+      disableHostCheck: true,
     },
     plugins: [
       new ForkTsCheckerWebpackPlugin({
