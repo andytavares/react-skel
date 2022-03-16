@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const createBaseWebpackConfig = () => {
@@ -51,9 +52,11 @@ const createBaseWebpackConfig = () => {
       liveReload: true,
       open: true,
       compress: true,
-      disableHostCheck: true,
+      hot: true,
+      allowedHosts: 'all',
     },
     plugins: [
+      new webpack.HotModuleReplacementPlugin(),
       new ForkTsCheckerWebpackPlugin({
         async: false,
         typescript: {
